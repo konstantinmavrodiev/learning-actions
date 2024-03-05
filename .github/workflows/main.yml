@@ -47,7 +47,7 @@ jobs:
       - name: Init CodeQL
         uses: github/codeql-action/init@v3
         with:
-          language: ${{ matrix.languages }}
+          languages: ${{ matrix.languages }}
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
