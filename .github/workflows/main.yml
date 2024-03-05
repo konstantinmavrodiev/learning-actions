@@ -38,19 +38,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ['java']
+        languages: ['java']
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
       - name: Init CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
-          language: ${{ matrix.language }}
+          language: ${{ matrix.languages }}
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@v3
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
