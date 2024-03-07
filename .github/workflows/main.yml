@@ -34,7 +34,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Package
+        name: package
         path: staging
 
     - name: Build Docker image
