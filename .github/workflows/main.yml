@@ -36,6 +36,14 @@ jobs:
       with:
         name: Package
         path: staging
+
+    - name: Build Docker image
+      uses: whoan/docker-build-with-cache-action@v5
+      with:
+        image_name: calculator-testing
+        image_tag: 0.0.1
+        push_image_and_stages: false
+
   
   unit-testing:
     name: Unit Testing
