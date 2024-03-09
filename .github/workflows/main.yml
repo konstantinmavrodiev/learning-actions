@@ -37,15 +37,6 @@ jobs:
         name: package
         path: staging
 
-    - name: Increment version
-      uses: ./.github/workflows/actions/custom_action
-      with:
-        version-file-path: 'VERSION'
-        version-type: 'minor'
-
-    # - name: Use the new version
-    #   run: echo "New version is ${{ steps.build-jdk11.outputs.new-version }}"
-
     - name: Build Docker image
       uses: whoan/docker-build-with-cache-action@v5
       with:
@@ -64,3 +55,17 @@ jobs:
 
       - name: 'Test with Maven'
         run: mvn -B test --file pom.xml
+
+  increment-version:
+    name: Increment version
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout Repo'
+        uses: actions/checkout@v4
+
+      - name: Increment version
+        uses: ./.github/workflows/actions/custom_action
+        with:
+          version-file-path: 'VERSION'
+          version-type: 'minor'
