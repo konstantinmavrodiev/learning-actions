@@ -37,6 +37,15 @@ jobs:
         name: package
         path: staging
 
+    - name: Increment version
+      uses: ./.github/workflows/actions/custom_action
+      with:
+        version-file-path: 'VERSION'
+        version-type: 'minor'
+
+    # - name: Use the new version
+    #   run: echo "New version is ${{ steps.build-jdk11.outputs.new-version }}"
+
     - name: Build Docker image
       uses: whoan/docker-build-with-cache-action@v5
       with:
