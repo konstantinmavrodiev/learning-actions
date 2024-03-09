@@ -55,10 +55,10 @@ jobs:
       - name: 'Test with Maven'
         run: mvn -B test --file pom.xml
 
+
   increment-version:
     name: Increment version
     runs-on: ubuntu-latest
-
 
     steps:
       - name: 'Checkout Repo'
