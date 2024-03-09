@@ -1,0 +1,17 @@
+name: 'Increment Version'
+description: 'Automatically increment version number'
+inputs:
+  version-file-path:
+    description: 'Path to the file containing the version number'
+    required: true
+    default: 'VERSION'
+  version-type:
+    description: 'Type of version bump (major, minor, patch)'
+    required: true
+    default: 'patch'
+outputs:
+  new-version:
+    description: 'The new version after bumping'
+runs:
+  using: 'node20'
+  main: 'index.js'
