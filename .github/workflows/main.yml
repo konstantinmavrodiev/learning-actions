@@ -8,10 +8,10 @@ on:
   push:
     branches:
       - main
-  workflow_run:
-    workflows: ["Bump Version and Commit"]
-    types:
-      - completed
+  # workflow_run:
+  #   workflows: ["Bump Version and Commit"]
+  #   types:
+  #     - completed
 
 
 jobs:
@@ -63,7 +63,7 @@ jobs:
   increment-version:
     name: Increment version
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success'
+
 
     steps:
       - name: 'Checkout Repo'
