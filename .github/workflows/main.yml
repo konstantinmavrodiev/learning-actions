@@ -73,3 +73,9 @@ jobs:
 
       - name: Use the new version
         run: echo "New version is ${{ steps.bump-version.outputs.new-version }}"
+
+      - name: Commit changes
+        run: |
+          git add VERSION
+          git commit -m "Bump version to ${{ steps.bump-version.outputs.new-version }}"
+          git push
