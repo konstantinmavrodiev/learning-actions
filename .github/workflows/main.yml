@@ -1,6 +1,5 @@
 name: CI
 
-# on: [push, pull_request]
 on:
   pull_request:
     branches:
@@ -8,10 +7,6 @@ on:
   push:
     branches:
       - main
-  # workflow_run:
-  #   workflows: ["Bump Version and Commit"]
-  #   types:
-  #     - completed
 
 
 jobs:
@@ -81,7 +76,7 @@ jobs:
 
       - name: Commit changes
         env:
-          GIT_USER_EMAIL: ${{ secrets.GIT_USER_MAIL }}
+          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
           GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
         run: |
           git config --global user.email "${GIT_USER_EMAIL}"
