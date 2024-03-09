@@ -65,7 +65,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Increment version
+        id: bump-version
         uses: ./.github/workflows/actions/custom_action
         with:
           version-file-path: 'VERSION'
           version-type: 'minor'
+
+      - name: Use the new version
+        run: echo "New version is ${{ steps.bump-version.outputs.new-version }}"
